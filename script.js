@@ -28,6 +28,15 @@
   }, { threshold: .12 });
   document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
+
+  // Back-to-top links: always scroll the current page all the way to the top.
+  document.querySelectorAll(".back-top").forEach(link => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    });
+  });
+
   // Live FiveM server status/player count.
   // No custom endpoint or in-game FiveM resource is required. The site uses
   // the public Cfx.re server-list data for the configured server code.
